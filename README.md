@@ -32,4 +32,6 @@ source /opt/ros/jazzy/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 colcon build
 source install/setup.bash
+```
+![Gz](Captura desde 2025-10-04 20-21-01.png)
 
