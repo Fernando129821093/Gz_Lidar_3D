@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="so101">
+    <static>true</static>
+    <!-- Este modelo carga el URDF directamente -->
+    <include>
+      <uri>file://so101.urdf</uri>
+    </include>
+  </model>
+</sdf>

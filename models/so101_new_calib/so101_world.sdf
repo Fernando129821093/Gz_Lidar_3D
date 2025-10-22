@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="so101_world">
+    <!-- Físicas básicas -->
+    <gravity>0 0 -9.81</gravity>
+    <magnetic_field>6e-6 2.3e-5 -4.2e-5</magnetic_field>
+    <atmosphere type="adiabatic"/>
+
+    <!-- Iluminación y plano de suelo estándar -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Tu robot como modelo instalado (model://so101_gazebo_model) -->
+    <include>
+      <uri>model://so101_gazebo_model</uri>
+      <name>so101</name>
+      <!-- Elevar un poco para evitar que parta colisionando con el plano -->
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+  </world>
+</sdf>  

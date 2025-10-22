@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>so101_bringup</name>
+  <version>0.0.1</version>
+  <description>Launch Gazebo world + ros_gz_bridge + RViz</description>
+  <maintainer email="you@example.com">Fernando</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+</package>
+

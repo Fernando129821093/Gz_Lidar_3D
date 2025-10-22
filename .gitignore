@@ -1,0 +1,21 @@
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Gazebo/GZ cache (local)
+.gazebo/
+.sim/
+.gazebo/gui/
+~/.gz/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Edición
+.vscode/
+.idea/
+*.swp
+*.bak

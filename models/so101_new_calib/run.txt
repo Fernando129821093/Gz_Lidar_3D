@@ -1,0 +1,52 @@
+#para corre la simulacion 
+gz sim -r -v 4 /home/fernando/ros2_ws/models/so101_new_calib/so101_world_local.sdf
+
+#para establecer el bridge
+ros2 run ros_gz_bridge parameter_bridge   /world/so101_world_local/model/so101/link/gripper_link/sensor/lidar3d/scan/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked   --ros-args -r /world/so101_world_local/model/so101/link/gripper_link/sensor/lidar3d/scan/points:=/lidar3d/points
+
+#para visualizar el lidar 
+ros2 run rviz2 rviz2 -d $(ros2 pkg prefix rviz_default_plugins)/share/rviz_default_plugins/rviz/default.rviz
+
+#para detectar el topic y encontra el frame id
+ros2 topic echo --once /lidar3d/points | head -n 30
+
+
+#borar datos cache de la simulacion
+ pkill -f "gz sim" || true
+ ~/.gz/sim/state ~/.gz/sim/worlds 2>/dev/null || true
+ rm -rf ~/.config/gz 2>/dev/null || true
+
+
+
+
+
+
+
+
+
+ros2 run tf2_ros static_transform_publisher \
+  0 0 0 0 1.22173 0 \
+  so101/gripper_link/lidar3d \
+  so101/gripper_link/lidar3d_corrected
+
+
+
+checkear las bases de datos 
+y pasarlo a gazebo y ver como interectua con gazebo 
+
+
+escribrlo formato paper, con todo lo que llevo ahora 
+
+IEEE 
+
+
+sudo apt install ros-jazzy-octomap ros-jazzy-octomap-server
+
+
+
+ros2 run octomap_server octomap_server_node \
+  --ros-args \
+  -r /cloud_in:=/lidar3d/points \
+  -p frame_id:=so101/gripper_link/lidar3d \
+  -p resolution:=0.01 \
+  -p max_range:=30.0
