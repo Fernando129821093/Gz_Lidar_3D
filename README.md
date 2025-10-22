@@ -33,5 +33,5 @@ rosdep install --from-paths src --ignore-src -r -y
 colcon build
 source install/setup.bash
 ```
-![Gz](Captura desde 2025-10-04 20-21-01.png)
+![Gz](./Captura%20desde%202025-10-04%2020-21-01.png)
 
